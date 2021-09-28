@@ -1,0 +1,34 @@
+Requirements:
+We will need the turtle module which is built-in with Python. The next module we need is the “random” module which will be used to get a random coordinate to keep the food of the snake. However, if you get the NoSuchModuleError, try the following command in the terminal.
+
+First Part:
+First, import the “turtle” and the “random” module. Then, set the geometry of the screen as w = 500, h = 500, fs = 10 and d = 100. Likewise, create a dictionary name “offsets” where there will be four name and values will be given in coordinates. Set the names and values as { “up”: (0, 20),    “down”: (0, -20),    “left”: (-20, 0),    “right”: (20, 0) }
+The Snake Function:
+Likewise, create a function named r() and declare “saap“, “kata“, “khanaT“, “pen“. Then create a list of lists as [[0, 0], [0, 20], [0, 40], [0, 60], [0, 80]]. Similarly, set the kata to “up” and store nun() in khanaT. Position the food to khanaT and call the hall() function.
+Similarly, create a function named hall(). Inside this function, set a global variable name “kata“. Then, set a new_head variable to sapp[-1].copy() and so on as in the code below.
+new_head = saap[-1].copy()
+new_head[0] = saap[-1][0] + offsets[kata][0]
+new_head[1] = saap[-1][1] + offsets[kata][1]
+
+ 
+Create an if else condition where r() will be called if new_head is in sapp[:-1]. Else, the current will be appended to sapp. If it is not khana() pop the value in the first index. Create another condition where if saap[-1][0] greater than w / 2, subtract w from saap[-1][0]. Else if saap[-1][0] less than – w / 2 , add w to saap[-1][0]. Else if saap[-1][1] greater than h / 2, subtract h from saap[-1][1]. At last if saap[-1][1] less than -h / 2, add h to saap[-1][1].
+Clear all the stamps and create a for loop that will loop through saap. Inside this loop, make the turtle go to the first index of the segment as “x” and the second index of the segment as “y” and stamp with the pen.
+Update the screen and call the ontimer method of the turtle with the arguments (hall, d)
+Food and Positioning Part:
+Create a function name khana() and set the khanaT variable as global. If  dist(saap[-1], khanaT) is less than 20, store the nun() function in khanaT and position the “food” variable to khanaT and return Ture else return False.
+Create another function named nun(). In this function, we will declare the position of the food for the snake with the following code.
+x = random.randint(- w / 2 + fs, w / 2 - fs)
+y = random.randint(- h / 2 + fs, h / 2 - fs)
+return (x, y)
+Create another function named dist() with the parameters “poos1” and “poos2“. Inside this function, set the poos1 as x1 and y1 and poos2 as x2 and y2. Declare the variable “distance” as ((y2 – y1) ** 2 + (x2 – x1) ** 2) ** 0.5 and return the distance.
+Moves of the snake:
+Create a function named mathi(). Inside this function, set a global variable kata and if kata is not “down”, set kata as “up”.
+Likewise, create another function named go_right(). Inside this function, set a global variable kata and if kata is not “left”, set kata as “left”.
+Similarly, create another function named go_down(). Inside this function, set a global variable kata and if kata is not “up”, set kata as “down”.
+Accordingly, create another function named go_left(). Inside this function, set a global variable kata and if kata is not “right”, set kata as “left”.
+Main Code as Last Part:
+Declare a variable named screen as the screen of the turtle. Set the screen’s geometry up as the (w, h). Set the title of the turtle to “Snake Game” and the background color to “green”. Again, condition the setup to (500, 500). Call the tracer method with the argument “0”.
+Declare a variable name “pen” as the actual turtle and set the shape of the turtle as “square”. Pick the pen up as we are not ready to draw.
+Declare a variable named “food” and set it as a turtle. Set the shape of the turtle as “circle” and the color of the turtle as “white”. Call the shapesize method with the argument (fs / 20). Pick the pen up as we are not ready to draw.
+Then, call the listen() method to focus on the TurtleScreen. After the focus, to record the KeyEvents, call the onkey() method with the arguments (mathi, “up”), screen.onkey(go_right, “Right”), screen.onkey(go_down, “Down”), screen.onkey(go_left, “Left”).
+Lastly, call the r() function and end the code with the method turtle.done()
